@@ -1,0 +1,22 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "PatientGrpcServer";
+
+service Patient {
+
+	rpc GetPatientInfo (PatientLookupModel) returns (PatientModel);
+
+}
+
+message PatientLookupModel{
+	int32 patientId = 1;
+}
+
+message PatientModel {
+
+	string firstName = 1;
+	string lastName = 2;
+	int32 chartId = 3;
+	int32 facilityId = 4;
+	int32 episodeId = 5;
+}
