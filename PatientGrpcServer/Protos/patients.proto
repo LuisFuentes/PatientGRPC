@@ -5,8 +5,13 @@ option csharp_namespace = "PatientGrpcServer";
 service Patient {
 
 	rpc GetPatientInfo (PatientLookupModel) returns (PatientModel);
+	rpc GetAllPatientsInfo (AllPatientsRequest) returns (stream PatientModel);
+}
+
+message AllPatientsRequest {
 
 }
+
 
 message PatientLookupModel{
 	int32 patientId = 1;
